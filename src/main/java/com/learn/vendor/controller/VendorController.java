@@ -41,4 +41,15 @@ public class VendorController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getVendorInfo(@PathVariable Long id){
+        Vendor vendor = new Vendor();
+        vendor = vendorService.getVendorInfo(id);
+        if ((vendor != null) && (vendor.getId() > 0)) {
+            return new ResponseEntity<>(vendor, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(vendor, HttpStatus.BAD_REQUEST);
+        }
+    }
 }

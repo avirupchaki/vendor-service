@@ -32,4 +32,19 @@ public class VendorService {
         }
         return isStatusSuccess;
     }
+
+    public Vendor getVendorInfo(Long id)
+    {
+        VendorEntity vendorEntity = new VendorEntity();
+        Vendor vendor = new Vendor();
+        LOG.info("Calling vendorRepository for getting vendor data based on Id.");
+        try {
+            vendorEntity = vendorRepository.findById(id).orElse(null);
+            BeanUtils.copyProperties(vendorEntity, vendor);
+        }catch (Exception e)
+        {
+            LOG.error("Exception occurred while retrieving Vendor Data for Id: "+id+". Error details: "+e.getMessage());
+        }
+        return vendor;
+    }
 }
