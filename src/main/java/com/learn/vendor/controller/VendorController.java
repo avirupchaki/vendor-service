@@ -29,6 +29,7 @@ public class VendorController {
     public ResponseEntity<?> registerVendor(@RequestBody Vendor vendor){
         Boolean isSuccess = false;
         try{
+            LOG.info("Calling service to save vendor record from registerVendor().");
             isSuccess = vendorService.registerVendor(vendor);
         }catch (Exception e)
         {

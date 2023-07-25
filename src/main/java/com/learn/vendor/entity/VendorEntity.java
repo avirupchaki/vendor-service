@@ -11,6 +11,9 @@ public class VendorEntity {
     private long id;
     private String firstName;
     private String lastName;
+
+    //Organisation name of the vendor
+    private String vendorOrg;
     private String email;
     private String phone;
     private String taxId;
@@ -25,20 +28,29 @@ public class VendorEntity {
     public VendorEntity() {
     }
 
-    public VendorEntity(long id, String firstName, String lastName, String email, String phone, String taxId, String addressLine1, String addressLine2, String city, String county, String state, String postalCode, String country) {
+    public VendorEntity(long id, String firstName, String lastName, String vendorOrg, String email, String phone, String taxId, String addressLine1, String addressLine2, String city, String county, String state, String postalCode, String country) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.vendorOrg = vendorOrg;
         this.email = email;
         this.phone = phone;
         this.taxId = taxId;
-        addressLine1 = addressLine1;
-        addressLine2 = addressLine2;
+        this.addressLine1 = addressLine1;
+        this.addressLine2 = addressLine2;
         this.city = city;
         this.county = county;
         this.state = state;
         this.postalCode = postalCode;
         this.country = country;
+    }
+
+    public String getVendorOrg() {
+        return vendorOrg;
+    }
+
+    public void setVendorOrg(String vendorOrg) {
+        this.vendorOrg = vendorOrg;
     }
 
     public long getId() {
